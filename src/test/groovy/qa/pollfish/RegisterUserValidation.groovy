@@ -3,6 +3,7 @@ package qa.pollfish
 import org.testng.Assert
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.Test
+import qa.pollfish.businessobject.DashboardBusinessObject
 import qa.pollfish.businessobject.RegisterBusinessObject
 import qa.pollfish.dataloaders.LoadUserData
 import qa.pollfish.dtos.ResearcherUser
@@ -13,6 +14,8 @@ class RegisterUserValidation {
     Navigate navigate = new Navigate()
 
     RegisterBusinessObject registerBusinessObject = new RegisterBusinessObject()
+
+    DashboardBusinessObject dashboardBusinessObject = new DashboardBusinessObject()
 
     ResearcherUser user
 
@@ -27,7 +30,7 @@ class RegisterUserValidation {
 
     @Test
     void verifyAfterRegistrationNavigateToDashboard(){
-
+        dashboardBusinessObject.verifyUserEmail(user)
     }
 
 }
